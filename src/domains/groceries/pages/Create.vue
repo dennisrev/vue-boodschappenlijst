@@ -1,3 +1,17 @@
+<script setup>
+
+// import { ref } from 'vue';
+// import GroceryForm from '../components/GroceryForm.vue';
+// import { getAllGroceries } from '../store.js';
+
+// const products = getAllGroceries;
+
+
+
+</script>
+
 <template>
-    <h1>Boodschappen toevoegen</h1>
+
+<!-- <GroceryForm :products="products"/>  -->
+ 
 </template>
