@@ -1,25 +1,26 @@
 <script setup>
 import { reactive } from 'vue';
 
+//import { getNumberOfGroceries } from '../store';
 
 const props = defineProps({
     grocery: Object
 });
 
-const groceryCopy = reactive({
+const groceryTemp = reactive({
     name: props.grocery.name,
-    price: props.grocery.prize,
-    amount: props.grocery.quantity
+    price: props.grocery.price,
+    quantity: props.grocery.quantity
 });
 
 const emit = defineEmits(['submit']);
 
 const saveGrocery = () => {
-    emit('submit', {
-        name: groceryCopy.name,
-        prize: groceryCopy.prize,
-        quantity: groceryCopy.amount
-    });
+     emit('submit', {
+        name: groceryTemp.name,
+        price: groceryTemp.price,
+        quantity: groceryTemp.quantity
+     });
 };
 
 </script>
@@ -31,21 +32,21 @@ const saveGrocery = () => {
   <table align="center">
     <thead>
         <tr>
-            <td colspan="2">Product</td>
+            <td colspan="2">Product toevoegen/bewerken</td>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Naam</td>
-            <td> <input v-model="groceryCopy.name" type="string"/> </td>
+            <td> <input v-model="groceryTemp.name" type="text"/> </td>
         </tr>
         <tr>
             <td>Prijs</td>
-            <td> <input v-model="groceryCopy.prize" type="number"/> </td>
+            <td> <input v-model="groceryTemp.price" type="number"/> </td>
         </tr>
         <tr>
             <td>Hoeveelheid</td>
-            <td> <input v-model="groceryCopy.quantity" type="number"/> </td>
+            <td> <input v-model="groceryTemp.quantity" type="number"/> </td>
         </tr>
     </tbody>
   </table>

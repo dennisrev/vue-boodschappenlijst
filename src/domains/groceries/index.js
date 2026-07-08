@@ -1,3 +1,3 @@
-import router from './domains/groceries/routes.js';
+// import router from './domains/groceries/routes.js';
 
-export default router;
+// export default router;

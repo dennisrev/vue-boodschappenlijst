@@ -1,17 +1,20 @@
 <script setup>
 
-// import { ref } from 'vue';
-// import GroceryForm from '../components/GroceryForm.vue';
-// import { getAllGroceries } from '../store.js';
+import GroceryForm from '../components/GroceryForm.vue';
 
-// const products = getAllGroceries;
+import { addGrocery } from '../store.js';
+//import { getNumberOfGroceries } from '../store.js';
 
-
+const grocery = {
+    name: '',
+    price: 0,
+    quantity: 0
+};
 
 </script>
 
 <template>
 
-<!-- <GroceryForm :products="products"/>  -->
+    <GroceryForm :grocery="grocery" @submit="addGrocery" />
  
 </template>
