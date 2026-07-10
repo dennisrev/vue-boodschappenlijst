@@ -1,8 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
 
-//import { getNumberOfGroceries } from '../store';
-
 const props = defineProps({
     grocery: Object
 });

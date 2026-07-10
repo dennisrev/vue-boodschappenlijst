@@ -12,11 +12,17 @@ export const getAllGroceries = computed(() => groceries.value);
 export const getGroceryById = (id) => computed(() => groceries.value.find(grocery => grocery.id == id));
 
 export const addGrocery = (grocery) => {
-  grocery.id = groceries.value.length + 1;
+  const maxId = groceries.value.reduce((max, groceryItem) => (groceryItem.id > max ? groceryItem.id : max), 1);
+  grocery.id = maxId + 1;
   groceries.value.push(grocery);
 };
 
-export const updateGrocery = (grocery) => {
-  const id = groceries.value.findIndex(groceryItem => groceryItem.id == grocery.id);
-  groceries.value.splice(id, 1, grocery);
+export const updateGrocery = (id, grocery) => {
+  const groceryIndex = groceries.value.findIndex(groceryItem => groceryItem.id == id);
+  groceries.value.splice(groceryIndex, 1, grocery);
+};
+
+export const removeGrocery = (grocery) => {
+  const groceryIndex = groceries.value.findIndex(groceryItem => groceryItem.id == grocery.id);
+  groceries.value.splice(groceryIndex, 1);
 };

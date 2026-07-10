@@ -14,6 +14,6 @@ const grocery = getGroceryById(route.params.id);
 
 <template>
 
-    <GroceryForm :grocery="grocery" @submit="updateGrocery"/>
+    <GroceryForm :grocery="grocery" @submit="updateGrocery(route.params.id, $event)"/>
  
 </template>

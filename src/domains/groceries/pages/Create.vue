@@ -3,7 +3,6 @@
 import GroceryForm from '../components/GroceryForm.vue';
 
 import { addGrocery } from '../store.js';
-//import { getNumberOfGroceries } from '../store.js';
 
 const grocery = {
     name: '',

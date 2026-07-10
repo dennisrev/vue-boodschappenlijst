@@ -2,6 +2,8 @@
 
 import { computed } from 'vue';
 
+import { removeGrocery } from '../store';
+
 const props = defineProps({
     products: Array
 });
@@ -19,7 +21,7 @@ const totalCost = computed(() => {
   <table align="center">
     <thead>
       <tr>
-        <td colspan="5">Boodschappenlijst</td>
+        <td colspan="6">Boodschappenlijst</td>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +39,9 @@ const totalCost = computed(() => {
         <td> {{ (product.price * product.quantity).toFixed(2) }}</td>
         <td>
           <button><RouterLink :to="`/groceries/edit/${product.id}`">Edit</RouterLink></button>
+        </td>
+        <td>
+          <button @click="removeGrocery(product)">Delete</button>
         </td>
       </tr>
       <tr>
